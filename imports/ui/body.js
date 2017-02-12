@@ -1,4 +1,4 @@
-import { Template } from 'meteor/templaing';
+import { Template } from 'meteor/templating';
 
 import { Tasks } from '../api/tasks.js';
 
