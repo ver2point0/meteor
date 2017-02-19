@@ -46,7 +46,7 @@ Template.body.events({
   },
   'change .hide-completed input'(event, instance) {
     instance.state.set('hideCompleted', event.target.checked); 
-  }
+  },
 });
 
 
