@@ -6,8 +6,14 @@ export const Tasks = new Mongo.Collection('tasks');
 
 if (Meteor.isServer) {
   // this code only runs on the server
+  // only publish tasks that are public or belong to the current user
   Meteor.publish('tasks', function taskPUblication() {
-    return Tasks.find();
+    return Tasks.find({
+      $or: [
+        { private: { $ne: true } },
+        { owner: this.userId },
+      ],
+    });
   });
 }
 
